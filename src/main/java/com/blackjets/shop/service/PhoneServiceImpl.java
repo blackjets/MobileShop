@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Primary
 @Service
 public class PhoneServiceImpl implements PhoneService {
-
+    @Autowired
     private final PhoneDao phoneDao;
 
     @Autowired

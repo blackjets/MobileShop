@@ -8,8 +8,8 @@ public interface PhoneService {
 
    Phone getPhone(int phoneId);
 
-   void createPhone(String comapanyName, String model, double cost);
-   void updatePhone(int id, String comapanyName, String model, double cost);
+   void createPhone(String companyName, String model, double cost);
+   void updatePhone(int id, String companyName, String model, double cost);
    void deletePhone(int id);
 
 }

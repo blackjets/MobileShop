@@ -1,9 +1,11 @@
 package com.blackjets.shop.repository;
 
 import com.blackjets.shop.model.Phone;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public interface PhoneDao {
 
     //SELECT * FROM mobile WHERE id = {id}

@@ -16,7 +16,7 @@ public class PhoneEntity implements RowMapper<Phone> {
         Phone phone = new Phone();
         phone.setId(rs.getInt("id"));
         phone.setCompanyName(rs.getString("company_name"));
-        phone.setModel(rs.getString("com/blackjets/shop/model"));
+        phone.setModel(rs.getString("model"));
         phone.setCost(rs.getDouble("cost"));
 
         return phone;

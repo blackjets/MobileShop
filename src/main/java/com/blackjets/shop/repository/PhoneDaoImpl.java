@@ -47,7 +47,7 @@ public class PhoneDaoImpl implements PhoneDao {
     public void insertPhone(Phone bean) {
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("company_name", bean.getCompanyName());
-        params.addValue("com/blackjets/shop/model", bean.getModel());
+        params.addValue("model", bean.getModel());
         params.addValue("cost", bean.getCost());
         jdbctemplate.update(SQL_INSERT_PHONE, params);
     }

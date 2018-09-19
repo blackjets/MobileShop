@@ -11,7 +11,7 @@ public class PhoneNotFoundException extends RuntimeException {
     @Override
     public String getMessage()
     {
-        return "Phone with id = " + phoneId + "not found";
+        return "Phone with id = " + phoneId + " not found";
     }
 
 }

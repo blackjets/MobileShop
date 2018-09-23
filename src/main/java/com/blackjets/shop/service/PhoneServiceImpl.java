@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 @Primary
 @Service
 public class PhoneServiceImpl implements PhoneService {
@@ -22,7 +25,12 @@ public class PhoneServiceImpl implements PhoneService {
     }
 
     @Override
-    public void createPhone(String companyName, String model, double cost) {
+    public List<Phone> getPhoneList() {
+        return phoneDao.getPhoneList();
+    }
+
+    @Override
+    public void createPhone(String companyName, String model, BigDecimal cost) {
         Phone bean = new Phone();
         bean.setModel(model);
         bean.setCompanyName(companyName);
@@ -30,12 +38,12 @@ public class PhoneServiceImpl implements PhoneService {
         phoneDao.insertPhone(bean);
     }
 
-    public void updatePhone(int id, String companyName, String model, double cost) {
+    public void updatePhone(int id, String companyName, String model, BigDecimal cost) {
         Phone phone = phoneDao.getPhone(id);
         phoneDao.updatePhone(phone.getId(), companyName, model, cost);
     }
 
     public void deletePhone(int id) {
-
+        phoneDao.deletePhone(id);
     }
 }

@@ -3,6 +3,7 @@ package com.blackjets.shop.repository;
 import com.blackjets.shop.model.Phone;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Component
@@ -17,7 +18,7 @@ public interface PhoneDao {
     //INSERT INTO mobile(,company_name,com.blackjets.shop.model,cost) values{}
     void insertPhone(Phone bean);
 
-    void updatePhone(int id, String companyName, String model, double cost);
+    void updatePhone(int id, String companyName, String model, BigDecimal cost);
 
     List<Phone> getPhoneList();
 

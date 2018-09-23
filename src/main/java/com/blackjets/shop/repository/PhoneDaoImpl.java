@@ -8,13 +8,15 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Component
 public class PhoneDaoImpl implements PhoneDao {
     private static final String SQL_GET_PHONE_BY_ID = "select id, company_name, model, cost from mobile where id = :id";
     private static final String SQL_DELETE_PHONE_BY_ID = "delete from mobile where id = :id";
-    private static final String SQL_INSERT_PHONE = "insert into mobile(,company_name,model,cost) values(:company_name,:model,:cost)";
+    private static final String SQL_INSERT_PHONE = "insert into mobile(company_name,model,cost) values(:company_name,:model,:cost)";
+    private static final String SQL_GET_ALL_PHONES = "select id, company_name, model, cost from mobile";
     private final PhoneEntity phoneMapper;
     private final NamedParameterJdbcTemplate jdbctemplate;
 
@@ -53,12 +55,16 @@ public class PhoneDaoImpl implements PhoneDao {
     }
 
     public List<Phone> getPhoneList() {
-
-        return null;
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        return jdbctemplate.query(
+                SQL_GET_ALL_PHONES,
+                params,
+                phoneMapper
+        );
     }
 
     @Override
-    public void updatePhone(int id, String companyName, String model, double cost) {
+    public void updatePhone(int id, String companyName, String model, BigDecimal cost) {
 
     }
 }

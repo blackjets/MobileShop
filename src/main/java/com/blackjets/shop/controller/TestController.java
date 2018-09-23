@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 @RestController
 public class TestController {
 
@@ -25,16 +28,22 @@ public class TestController {
 
     @RequestMapping(value = "/phone/{id}", method = RequestMethod.GET)
     public Phone getPhoneById(@PathVariable Integer id) {
-
-        Phone mobile = phoneService.getPhone(id);
-        return mobile;
-//        String output = mobile.getCompanyName() + " | " + mobile.getModel() + " " +
-//                mobile.getCost();
-//        return output;
+        return phoneService.getPhone(id);
+    }
+    @RequestMapping(value = "/phone")
+    public List<Phone> getPhoneList(){
+        return phoneService.getPhoneList();
     }
 
     @RequestMapping(value = "/insert/{company_name}/{model}/{cost}")
-    public void createPhone(@PathVariable String company_name, String model, Integer cost) {
-        createPhone(company_name, model, cost);
+    public String createPhone(@PathVariable String company_name, @PathVariable String model, @PathVariable BigDecimal cost) {
+        phoneService.createPhone(company_name, model, cost);
+        return "Create successful";
     }
+    @RequestMapping(value = "/delete/{id}")
+    public String deletePhone(@PathVariable Integer id){
+        phoneService.deletePhone(id);
+        return "delete successful";
+    }
+
 }

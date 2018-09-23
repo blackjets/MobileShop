@@ -1,15 +1,17 @@
 package com.blackjets.shop.model;
 
+import java.math.BigDecimal;
+
 public class Phone {
     private int id;
     private String companyName;
     private String model;
-    private Double cost;
+    private BigDecimal cost;
 
     public Phone() {
     }
 
-    public Phone(int id, String companyName, String model, Double cost) {
+    public Phone(int id, String companyName, String model, BigDecimal cost) {
         this.id = id;
         this.companyName = companyName;
         this.model = model;
@@ -40,11 +42,11 @@ public class Phone {
         this.model = model;
     }
 
-    public Double getCost() {
+    public BigDecimal getCost() {
         return cost;
     }
 
-    public void setCost(Double cost) {
+    public void setCost(BigDecimal cost) {
         this.cost = cost;
     }
 }

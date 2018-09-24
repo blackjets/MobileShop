@@ -1,0 +1,1 @@
+start javaw -jar C:\PhoneShopBack1\MobileShop\classes\artifacts\phone_shop_jar\phone-shop.jar

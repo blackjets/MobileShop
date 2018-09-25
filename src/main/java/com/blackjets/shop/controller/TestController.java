@@ -3,10 +3,7 @@ package com.blackjets.shop.controller;
 import com.blackjets.shop.model.Phone;
 import com.blackjets.shop.service.PhoneService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -30,6 +27,7 @@ public class TestController {
     public Phone getPhoneById(@PathVariable Integer id) {
         return phoneService.getPhone(id);
     }
+    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(value = "/phone")
     public List<Phone> getPhoneList(){
         return phoneService.getPhoneList();
